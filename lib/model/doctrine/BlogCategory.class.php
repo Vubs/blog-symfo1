@@ -17,6 +17,11 @@ class BlogCategory extends BaseBlogCategory
         return $this->getName();
     }*/
 
+    public function getSlug()
+    {
+        return Blog::slugify($this->getName());
+    }
+
     public function getPosts($max = 10)
     {
         $q = Doctrine_Query::create()

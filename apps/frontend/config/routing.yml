@@ -12,6 +12,13 @@ post_show_title:
     id: \d+
     sf_method: [get]
 
+category:
+  url: /category/:slug
+  class: sfDoctrineRoute
+  param: { module: category, action: show }
+  options: { model: BlogCategory, type: object }
+
+
 #default rules
 
 default_index:
