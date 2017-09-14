@@ -22,7 +22,7 @@ class postActions extends sfActions
 
         $this->blog_posts = $q->execute();*/
 
-        $this->blog_posts = Doctrine_Core::getTable('BlogPost')->getPosts();
+        //$this->blog_posts = Doctrine_Core::getTable('BlogPost')->getPosts();
         $this->categories = Doctrine_Core::getTable('BlogCategory')->getWithPosts();
     }
 
