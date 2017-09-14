@@ -1,0 +1,13 @@
+BlogCategory:
+  actAs: { Timestampable: ~ }
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+
+BlogPost:
+  actAs: { Timestampable: ~ }
+  columns:
+    category_id: { type: integer, notnull: true }
+    title: { type: string(255), notnull: true }
+    body: { type: string(255), notnull: true}
+  relations:
+    BlogCategory: { onDelete: CASCADE, local: category_id, foreign: id, foreignAlias: BlogPosts }

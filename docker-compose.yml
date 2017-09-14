@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+    trusty:
+        build: ./docker/ubuntu/
+        volumes:
+            - ".:/var/www/blog:rw"
+            # Update the default apache site with the config we created.
+            - "./docker/ubuntu/apache-config.conf:/etc/apache2/sites-enabled/000-default.conf:ro"
+        # By default start up apache in the foreground, override with /bin/bash for interative.
+        command: /bin/sh -c 'cd /var/www/blog && make build && apt-get moo && /usr/sbin/apache2ctl -D FOREGROUND'
+        # Expose apache.
+        ports:
+           - "8080:80"
+
