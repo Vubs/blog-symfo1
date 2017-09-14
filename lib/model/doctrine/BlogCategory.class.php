@@ -12,11 +12,12 @@
  */
 class BlogCategory extends BaseBlogCategory
 {
-    public function getPosts()
+    public function getPosts($max = 10)
     {
         $q = Doctrine_Query::create()
             ->from('BlogPost p')
-            ->where('p.category_id = ?', $this->getId());
+            ->where('p.category_id = ?', $this->getId())
+            ->limit($max);
 
         return Doctrine_Core::getTable('BlogPost')->getPosts($q);
     }
