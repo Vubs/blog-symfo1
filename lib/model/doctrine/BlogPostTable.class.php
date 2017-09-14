@@ -17,7 +17,23 @@ class BlogPostTable extends Doctrine_Table
         return Doctrine_Core::getTable('BlogPost');
     }
 
+    public function retrieveJob(Doctrine_Query $q)
+    {
+        return $this->addPostsQuery($q)->fetchOne();
+    }
+
+
     public function getPosts(Doctrine_Query $q = null)
+    {
+        return $this->addPostsQuery($q)->execute();
+    }
+
+    public function countPosts(Doctrine_Query $q = null)
+    {
+        return $this->addPostsQuery($q)->count();
+    }
+
+    public function addPostsQuery(Doctrine_Query $q = null)
     {
         if (is_null($q))
         {
@@ -25,6 +41,9 @@ class BlogPostTable extends Doctrine_Table
                 ->from('BlogPost p');
         }
 
-        return $q->execute();
+        $alias = $q->getRootAlias();
+        $q->addOrderBy($alias .'.created_at DESC');
+
+        return $q;
     }
 }

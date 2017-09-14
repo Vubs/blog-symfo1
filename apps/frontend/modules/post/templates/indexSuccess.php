@@ -27,18 +27,7 @@
             </div>
 
 
-            <div class="posts">
-                <?php foreach ($category->getPosts(sfConfig::get('app_max_posts_on_homepage')) as $i => $post): ?>
-                    <article>
-                        <h1><a href="<?php echo url_for(array('sf_route' => 'post_show_title', 'sf_subject' => $post )) ?>"><?php echo $post->getTitle() ?><small> - le: <?php echo $post->getDateTimeObject('created_at')->format('m/d/Y') ?></small></a></h1>
-                        <p>
-                            <?php echo $post->getBody() ?>
-                        </p>
-                    </article>
-
-
-                <?php endforeach; ?>
-            </div>
+            <?php include_partial('post/postList', array('posts' => $category->getPosts(sfConfig::get("app_max_posts_on_homepage")))) ?>
 
 
         </div>

@@ -17,19 +17,31 @@ class BlogCategory extends BaseBlogCategory
         return $this->getName();
     }*/
 
-    public function getSlug()
+    /*public function getSlug()
     {
         return Blog::slugify($this->getName());
-    }
+    }*/
 
     public function getPosts($max = 10)
     {
-        $q = Doctrine_Query::create()
-            ->from('BlogPost p')
-            ->where('p.category_id = ?', $this->getId())
+        $q = $this->getPostsQuery()
             ->limit($max);
 
-        return Doctrine_Core::getTable('BlogPost')->getPosts($q);
+        return $q->execute();
+    }
+
+    public function countPosts()
+    {
+        return $this->getPostsQuery()->count();
+    }
+
+    public function getPostsQuery()
+    {
+        $q = Doctrine_Query::create()
+            ->from('BlogPost p')
+            ->where('p.category_id = ?', $this->getId());
+
+        return Doctrine_Core::getTable('BlogPost')->addPostsQuery($q);
     }
 
 }

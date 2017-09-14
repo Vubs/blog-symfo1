@@ -19,6 +19,7 @@ abstract class BaseBlogCategoryForm extends BaseFormDoctrine
       'name'       => new sfWidgetFormInputText(),
       'created_at' => new sfWidgetFormDateTime(),
       'updated_at' => new sfWidgetFormDateTime(),
+      'slug'       => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -26,10 +27,14 @@ abstract class BaseBlogCategoryForm extends BaseFormDoctrine
       'name'       => new sfValidatorString(array('max_length' => 255)),
       'created_at' => new sfValidatorDateTime(),
       'updated_at' => new sfValidatorDateTime(),
+      'slug'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorDoctrineUnique(array('model' => 'BlogCategory', 'column' => array('name')))
+      new sfValidatorAnd(array(
+        new sfValidatorDoctrineUnique(array('model' => 'BlogCategory', 'column' => array('name'))),
+        new sfValidatorDoctrineUnique(array('model' => 'BlogCategory', 'column' => array('slug'))),
+      ))
     );
 
     $this->widgetSchema->setNameFormat('blog_category[%s]');

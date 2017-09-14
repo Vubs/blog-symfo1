@@ -8,3 +8,4 @@ prod:
 all:
   version: 0
   max_posts_on_homepage: 10
+  max_posts_on_category : 20
