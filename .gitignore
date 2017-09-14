@@ -10,3 +10,12 @@
 /bin/
 /composer.phar
 composer.lock
+/docker
+/cache
+/config
+/plugins
+/apps/frontend/config
+/log
+/lib/vendor
+docker-compose.yml
+

@@ -1,0 +1,7 @@
+BlogCategory:
+  design:
+    name: Design
+  programming:
+    name: Programming
+  manager:
+    name: Manager

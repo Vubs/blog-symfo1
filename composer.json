@@ -1,0 +1,9 @@
+{
+    "require": {
+        "symfony/symfony1": "1.4.20"
+    },
+    "config": {
+        "bin-dir": "lib/vendor/bin",
+        "vendor-dir": "lib/vendor/"
+    }
+}

@@ -1,0 +1,13 @@
+BlogPost:
+  the_first_post:
+    BlogCategory: programming
+    title: First Title
+    body: First body
+
+  the_second_post:
+    BlogCategory: design
+    title: Second Title
+    body: Second body
+
+
+
