@@ -7,4 +7,4 @@ prod:
 
 all:
   version: 0
-  max_posts_on_homepage: 1
+  max_posts_on_homepage: 2

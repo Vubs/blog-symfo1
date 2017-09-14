@@ -12,12 +12,17 @@
  */
 class BlogPost extends BaseBlogPost
 {
+    public function __toString()
+    {
+        return sprintf('%s at %s (%s)', $this->getTitle(), $this->getBody());
+    }
+
     public function getTitleSlug()
     {
         return Blog::slugify($this->getTitle());
     }
 
-    public function save(Doctrine_Connection $conn = null)
+    /*public function save(Doctrine_Connection $conn = null)
     {
         // [logic...]
 
@@ -25,6 +30,6 @@ class BlogPost extends BaseBlogPost
 
         // if i'm looking to override the default class behavior, like set a special value in field
         //return parent::save($conn);
-    }
+    }*/
 
 }
