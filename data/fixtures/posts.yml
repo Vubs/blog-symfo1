@@ -10,4 +10,17 @@ BlogPost:
     body: Second body
 
 
+<?php for($i=100; $i <= 130; $i++): ?>
+  post_<?php echo $i ?>:
+    BlogCategory : design
+    title: This is title of the blog post design <?php echo $i."\n"?>
+    body: This is the body of the blog post design <?php echo $i."\n"?>
+<?php endfor ?>
 
+
+<?php for($i=131; $i <= 150; $i++): ?>
+  post_<?php echo $i ?>:
+    BlogCategory : manager
+    title: This is title of the blog post manager <?php echo $i."\n"?>
+    body: This is the body of the blog post manager <?php echo $i."\n"?>
+<?php endfor ?>
