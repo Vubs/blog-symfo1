@@ -76,6 +76,14 @@ class postActions extends sfActions
         $this->redirect('post/index');
     }
 
+    public function executeDepublish(sfWebRequest $request)
+    {
+        $postManager = new PostManager();
+        $postManager->depublishPost($request->getParameter('id'));
+        return $this->redirect('post/index');
+    }
+
+
     protected function processForm(sfWebRequest $request, sfForm $form)
     {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -86,5 +94,7 @@ class postActions extends sfActions
             $this->redirect('post/edit?id='.$blog_post->getId());
         }
     }
+
+
 }
 

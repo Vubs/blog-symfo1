@@ -32,3 +32,7 @@
 <a href="<?php echo url_for('post/edit?id='.$blog_post->getId()) ?>">Edit</a>
 &nbsp;
 <a href="<?php echo url_for('post/index') ?>">List</a>
+
+<br>
+
+<a href="<?php echo url_for('post_depublish', $blog_post) ?>">Depublish this post</a>

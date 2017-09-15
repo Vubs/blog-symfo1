@@ -3,6 +3,7 @@ post:
   class: sfDoctrineRouteCollection
   options: { model: BlogPost }
 
+
 post_show_title:
   url: /post/:title_slug/:id
   class: sfDoctrineRoute
@@ -11,6 +12,16 @@ post_show_title:
   requirements :
     id: \d+
     sf_method: [get]
+
+post_depublish:
+  url: /post/manage/depublish/:id
+  class: sfDoctrineRoute
+  options: { model: BlogPost, type: object }
+  param: { module: post, action: depublish }
+  requirements :
+    id: \d+
+
+
 
 category:
   url: /category/:slug

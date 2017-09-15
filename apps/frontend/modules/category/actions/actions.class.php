@@ -28,4 +28,6 @@ class categoryActions extends sfActions
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();
   }
+
+
 }
