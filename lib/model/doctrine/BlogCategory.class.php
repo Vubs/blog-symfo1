@@ -22,6 +22,7 @@ class BlogCategory extends BaseBlogCategory
         return Blog::slugify($this->getName());
     }*/
 
+
     public function getPosts($max = 10)
     {
         $q = $this->getPostsQuery()

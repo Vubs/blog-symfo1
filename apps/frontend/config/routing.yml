@@ -18,6 +18,15 @@ category:
   param: { module: category, action: show }
   options: { model: BlogCategory, type: object }
 
+#category_page:
+#  url: /category/:slug/:page
+#  class: sfDoctrineRoute
+#  options: { model: category, type: object }
+#  param: { module: category, action: show }
+#  requirements:
+#    page: \d+
+#    sf_method: [get]
+
 
 #default rules
 
